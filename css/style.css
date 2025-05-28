@@ -602,7 +602,7 @@ main.pt {
   position: fixed;
   top: 0;
   left: 0;
-  animation: loader 1.4s 0.3s forwards ease-in-out;
+  animation: loader 1.4s 0.2s forwards ease-in-out;
 }
 @keyframes loader {
   0% {
@@ -619,7 +619,7 @@ main.pt {
   z-index: var(--z-start-loader);
   top: 0;
   left: 0;
-  animation: loader 1.2s 0.3s forwards ease-in-out;
+  animation: loader 1.2s 0.2s forwards ease-in-out;
 }
 
 #header {
