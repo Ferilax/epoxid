@@ -208,6 +208,7 @@ main.pt {
   --dark-blue: #0A2653;
   --dark: #1C1C1C;
   --dark-grey: #6A6A6A;
+  --z-start-loader: 150;
   --z-header: 100;
   --z-mobile-menu: 90;
   --z-select: 10;
@@ -590,6 +591,35 @@ main.pt {
     font-weight: 500;
     border-color: var(--dark-blue);
   }
+}
+
+.component_start-loader {
+  background: #209cc9;
+  transition: 0.5s;
+  width: 100vw;
+  height: 100dvh;
+  z-index: var(--z-start-loader);
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation: loader 1.4s 0.3s forwards ease-in-out;
+}
+@keyframes loader {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+.component_start-loader__body {
+  background: rgba(1, 80, 215, 0.3019607843);
+  width: 100vw;
+  height: 100dvh;
+  z-index: var(--z-start-loader);
+  top: 0;
+  left: 0;
+  animation: loader 1.2s 0.3s forwards ease-in-out;
 }
 
 #header {

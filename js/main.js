@@ -25,6 +25,10 @@ async function loadModules() {
 	if (document.querySelector(".warning")) {
 		import("./warning.js");
 	}
+
+	if (document.querySelector(".component_start-loader")) {
+		import("./start-loader.js");
+	}
 }
 
 // Запускаем после загрузки DOM
