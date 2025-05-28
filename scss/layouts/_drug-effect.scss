@@ -1,0 +1,105 @@
+.layout_drug-effect {
+	padding: 60px 0;
+	background: url("../assets/images/gradients/5.webp") 50% / cover;
+
+	.title {
+		@extend %title;
+		color: white !important;
+	}
+
+	.flex {
+		margin-top: 40px;
+
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
+
+	.card {
+		display: flex;
+		flex-direction: column;
+
+		display: grid;
+		grid-template-columns: 30px 1fr;
+		gap: 10px;
+
+		background: white;
+		border-radius: 20px;
+		padding: 16px;
+
+		&:first-child {
+
+			.card__circle img,
+			.card__circle svg {
+				margin-left: -5px;
+			}
+		}
+	}
+
+	.card__circle {
+		grid-row: span 2;
+		height: 30px;
+		border-radius: 50%;
+		background: var(--blue);
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		img,
+		svg {
+			width: 70%;
+			height: 70%;
+		}
+	}
+
+	.card__title {
+		@include responsive-font(20, 24);
+		font-weight: 700;
+		color: var(--blue);
+	}
+
+	.card__text {
+		font-size: 18px;
+		line-height: 1.2;
+	}
+
+	@media (width >=1024px) {
+		background-image: url("../assets/images/gradients/6.webp");
+		padding-top: 90px;
+
+		.card {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			padding: 30px;
+		}
+
+		.card__circle {
+			width: 70px;
+			height: 70px;
+		}
+
+		.card__title {
+			font-weight: 400;
+			color: #2A2858;
+			margin-top: 10px;
+		}
+
+		.flex {
+			grid-template-columns: 1fr 1fr;
+			gap: 20px;
+		}
+	}
+
+	@media (width >=1440px) {
+		.flex {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		.card__circle {
+			width: 103px;
+			height: 103px;
+		}
+	}
+}

@@ -1,0 +1,78 @@
+.mobile-menu {
+	position: fixed;
+	z-index: var(--z-mobile-menu);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	margin-top: var(--header-height);
+	transform: translateX(-100%);
+
+	transition: 0.3s;
+	background: url("../assets/images/gradients/1.png") bottom center / 100% no-repeat var(--blue);
+
+	.container {
+		padding-top: 30px;
+		padding-bottom: 30px;
+		overflow-y: auto;
+
+		height: calc(100% - var(--header-height));
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 44px;
+	}
+
+	.where-to-find {
+		margin-top: auto;
+		@extend %button-with-icon;
+		width: 100%;
+	}
+
+	.nav {
+		margin-top: auto;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 40px;
+
+		@extend %h2;
+		color: white;
+	}
+
+	.links {
+		display: flex;
+		gap: 40px;
+	}
+
+	.link {
+		@extend %button-blue-outline;
+	}
+
+	// ----------------------------------------------------------------------------------------
+
+	@media (height < 500px) {
+		background-position: bottom -100px center;
+	}
+
+	@media (width >=425px) {
+		background-position: bottom -100px center;
+	}
+
+	@media (width >=650px) {
+		background-position: bottom -300px center;
+	}
+
+	@media (width >=768px) {
+		background-position: bottom -400px center;
+	}
+}
+
+.mobile-menu.open {
+	@media (width < 1200px) {
+		transform: none;
+	}
+}

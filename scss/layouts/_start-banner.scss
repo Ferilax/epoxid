@@ -1,0 +1,185 @@
+.layout_start-banner {
+	padding: calc(var(--header-height) + 38px) 0 38px;
+	background:
+		url("../assets/images/backgrounds/green-mobile.webp") 50% / cover no-repeat;
+
+	min-height: min-content;
+	height: 100dvh;
+
+	color: white;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.title {
+		@extend %h1;
+		text-align: center;
+	}
+
+	.subtitle {
+		@include responsive-font(16, 40);
+		text-align: center;
+		font-weight: 500;
+		line-height: 1.2;
+
+		margin-top: 20px;
+	}
+
+	br {
+		display: none;
+	}
+
+	.list {
+		margin: 20px auto 0;
+		padding: 16px;
+
+		border-radius: 10px;
+		background: #2A28584D;
+		font-weight: 500;
+		max-width: 500px;
+		line-height: 1.2;
+
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.list-item {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.image {
+		margin: -25% 0;
+		display: flex;
+		width: 170%;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.buttons {
+		margin-top: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.instruction {
+		@extend %button-outline;
+		max-width: 500px;
+		width: 100%;
+	}
+
+	.where-to-find {
+		@extend %button-with-icon;
+		max-width: 500px;
+		width: 100%;
+	}
+
+	@media (width >=600px) {
+		.image {
+			width: 800px;
+			align-self: end;
+			margin: -100px 0;
+			margin-right: -240px;
+		}
+	}
+
+	@media (width >=768px) {
+		.list {
+			margin-top: 32px;
+		}
+
+		.title {
+			text-align: left;
+		}
+
+		.subtitle {
+			text-align: left;
+		}
+
+		.list {
+			margin-left: 0;
+		}
+
+		.buttons {
+			align-items: start;
+		}
+	}
+
+	@media (width >=1024px) {
+		padding: 200px 0 100px;
+		background:
+			url("../../assets/images/backgrounds/green-hand.webp") right -60% center / 70% no-repeat,
+			url("../assets/images/backgrounds/green-desktop.webp") 50% / cover no-repeat;
+
+		.image {
+			display: none;
+		}
+
+		br {
+			display: block;
+		}
+
+		.subtitle {
+			margin-top: 54px;
+			line-height: 1;
+			font-weight: 700;
+
+			sup {
+				font-size: 24px;
+				font-weight: 500;
+			}
+		}
+
+		.list {
+			margin-top: 54px;
+		}
+
+		.buttons {
+			margin-top: 54px;
+			flex-direction: row;
+			align-items: stretch;
+			gap: 20px;
+		}
+
+		.where-to-find {
+			height: 64px;
+			max-width: unset;
+			width: unset;
+		}
+
+		.instruction {
+			max-width: unset;
+			width: unset;
+		}
+	}
+
+	@media (width >=1440px) {
+		background:
+			url("../../assets/images/backgrounds/green-hand.webp") right bottom / 50% no-repeat,
+			url("../assets/images/backgrounds/green-desktop.webp") 50% / cover no-repeat;
+
+		.list {
+			flex-direction: row;
+			max-width: 730px;
+		}
+	}
+
+	@media (width >=1600px) {
+		.container {
+			padding-left: 150px;
+		}
+	}
+}

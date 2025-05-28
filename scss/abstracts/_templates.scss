@@ -1,0 +1,166 @@
+// Text -----------------------------------------------------------------------------------
+%h1 {
+	@include responsive-font(36, 82);
+	font-weight: 700;
+	line-height: 1;
+}
+
+%h1-mini {
+	@include responsive-font(32, 56);
+	font-weight: 900;
+	line-height: 1.1;
+	color: var(--dark-blue);
+
+	@media (width >=1024px) {
+		line-height: 1;
+		font-weight: 700;
+	}
+}
+
+%h2 {
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 1.1;
+}
+
+%h3 {
+	@include responsive-font(32, 52);
+	font-weight: 900;
+}
+
+%button-font {
+	@include responsive-font(18, 20);
+	font-weight: 700;
+	line-height: 1.1;
+	text-align: center;
+
+	@media (width >=1024px) {
+		line-height: 1.2;
+		font-weight: 500;
+	}
+}
+
+// -----------------------------------------------------------------------------------------
+%icon-shadow {
+	box-shadow:
+		0 31px 50px 0 #0F0F0F24,
+		0 15px 15px 0 #00000033;
+}
+
+%splide-margin {
+	margin-left: calc(var(--container-padding) * -1);
+	margin-right: calc(var(--container-padding) * -1);
+}
+
+// Buttons ----------------------------------------------------------------------------------
+%button-with-icon {
+	@include responsive-font(18, 20);
+	@extend %icon-shadow;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+
+	min-height: 46px;
+	max-width: 327px;
+	padding: 0 32px;
+
+	font-weight: 700;
+	color: var(--dark-blue);
+	background: white;
+	border-radius: 200px;
+
+	img,
+	svg {
+		@extend %icon-shadow;
+	}
+
+	@media (width >=1024px) {
+		height: 50px;
+	}
+}
+
+%button-blue-outline {
+	width: 50px;
+	height: 50px;
+	flex: 0 0 50px;
+
+	border-radius: 50%;
+	border: 2px solid var(--dark-blue);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+%button-outline {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	text-align: center;
+	color: white;
+	border-radius: 100px;
+	border: 2px solid white;
+	background: #04A6E133;
+	backdrop-filter: blur(10px);
+	max-width: 327px;
+	width: 100%;
+
+	padding: 0 32px;
+	height: 40px;
+
+	font-weight: 700;
+	font-size: 18px;
+
+	@media (width >=1024px) {
+		height: 64px;
+		width: auto;
+		max-width: unset;
+		background: transparent;
+	}
+}
+
+%button {
+	@include responsive-font(18, 20);
+	font-weight: 700;
+	color: #2A2858;
+	background: white;
+	border-radius: 100px;
+
+	height: 40px;
+	padding: 0 40px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@media (width >=1024px) {
+		font-weight: 500;
+		height: 64px;
+		padding: 0 50px;
+	}
+}
+
+%button-buy {
+	min-width: 46px;
+	max-width: 46px;
+	height: 40px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	box-shadow:
+		0 15px 15px -10px #00000033,
+		inset 1px 1px 1px 0 #FFFFFF80;
+	background: var(--green);
+	border-radius: 100px;
+
+	@media (width >=1024px) {
+		min-width: 74px;
+		max-width: 74px;
+		height: 64px;
+	}
+}

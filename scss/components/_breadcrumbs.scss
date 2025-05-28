@@ -1,0 +1,47 @@
+.component_breadcrumbs {
+	margin-top: 40px;
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	&__title {
+		@extend %h1-mini;
+	}
+
+	&__links {
+		display: flex;
+		color: var(--dark-grey);
+		gap: 10px;
+	}
+
+	&__link {
+		padding-left: 16px;
+		position: relative;
+
+		&::before {
+			content: "•";
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		&:first-child {
+			padding: 0;
+
+			&::before {
+				display: none;
+			}
+		}
+
+		&.active {
+			text-decoration: underline;
+		}
+	}
+
+	@media (width >=1024px) {
+		margin-top: 64px;
+	}
+}

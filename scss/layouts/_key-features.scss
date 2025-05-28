@@ -1,0 +1,104 @@
+.layout_key-features {
+	margin-top: 60px;
+
+	.title {
+		@extend %title;
+	}
+
+	.flex {
+		margin-top: 45px;
+
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.image {
+		background: url("../assets/images/backgrounds/hand-bg.webp") 50% / cover;
+		border-radius: 20px;
+
+		flex: 0 1 390px;
+		max-width: 435px;
+		aspect-ratio: 323/390;
+
+		position: relative;
+
+		&::after {
+			content: "";
+			pointer-events: none;
+			position: absolute;
+			bottom: 0;
+			right: 10px;
+			width: 80%;
+			height: 120%;
+			background: url("../assets/images/hand.webp") right bottom -60px / contain no-repeat;
+		}
+	}
+
+	.column {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.accordion {
+		overflow: hidden;
+		line-height: 1.2;
+		padding: 20px;
+		border: 1px solid var(--blue);
+		border-radius: 20px;
+	}
+
+	.accordion__trigger {
+		cursor: pointer;
+	}
+
+	.accordion__title {
+		@include responsive-font(20, 32);
+		font-weight: 700;
+		color: var(--blue);
+	}
+
+	.accordion__menu {
+		@include responsive-font(18, 24);
+	}
+
+	.accordion.open {
+		.accordion__menu {
+			margin-top: 10px;
+		}
+	}
+
+	@media (width >=1024px) {
+		margin-top: 90px;
+
+		.flex {
+			flex-direction: row-reverse;
+			gap: 20px;
+		}
+
+		.image {
+			flex: 0 0 435px;
+			aspect-ratio: unset;
+			height: 600px;
+		}
+
+		.column {
+			gap: 24px;
+		}
+
+		.accordion {
+			&:nth-child(2) {
+				border: 2px solid var(--blue);
+			}
+		}
+
+		.accordion__title {
+			max-width: 900px;
+		}
+	}
+
+	@media (width >=1440px) {
+		margin-top: 120px;
+	}
+}

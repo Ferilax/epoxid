@@ -1,0 +1,121 @@
+.page_articles {
+	margin-bottom: 120px;
+
+	.articles {
+		margin-top: 40px;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.component_article {
+		&:nth-child(1) {
+			background: url("../assets/images/articles/1-mobile.webp") top center / 100% no-repeat #EDF8FF;
+		}
+
+		&:nth-child(2) {
+			background: url("../assets/images/articles/2-desktop.webp") 50% / cover;
+		}
+
+		&:nth-child(3) {
+			background: url("../assets/images/articles/3-mobile.webp") 50% / cover;
+		}
+
+		&:nth-child(4) {
+			background: url("../assets/images/articles/4-desktop.webp") 50% / cover;
+		}
+
+		&:nth-child(5) {
+			background: url("../assets/images/articles/5-mobile.webp") 50% / cover;
+		}
+
+		&:nth-child(6) {
+			background: url("../assets/images/articles/6-mobile.webp") 50% / cover;
+		}
+
+		&:nth-child(7) {
+			background: url("../assets/images/articles/7-mobile.webp") 50% / cover;
+		}
+
+		&:nth-child(8) {
+			background: url("../assets/images/articles/8-desktop.webp") 50% / cover;
+		}
+
+		&:nth-child(9) {
+			background: url("../assets/images/articles/9-desktop.webp") 50% / cover;
+		}
+	}
+
+	.show-more {
+		@extend %button;
+		background: var(--blue-2);
+		color: white;
+
+		margin-top: 40px;
+		height: 40px;
+		width: 100%;
+		font-weight: 700;
+		font-size: 18px;
+	}
+
+	@media (width >=768px) {
+		.grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.component_article {
+			&:has(.component_article__text) {
+				grid-column: span 2;
+			}
+
+			&:nth-child(1) {
+				background: url("../assets/images/articles/1-desktop.webp") 50% / cover no-repeat;
+			}
+
+			&:nth-child(6) {
+				background: url("../assets/images/articles/6-desktop.webp") 50% / cover;
+			}
+
+			&:nth-child(7) {
+				background: url("../assets/images/articles/7-desktop.webp") 50% / cover;
+			}
+		}
+
+		.show-more {
+			width: max-content;
+		}
+	}
+
+	@media (width >=1024px) {
+		.grid {
+			margin-top: 74px;
+		}
+
+		.show-more {
+			font-weight: 500;
+			margin-top: 72px;
+		}
+	}
+
+	@media (width >=1440px) {
+		margin-bottom: 72px;
+
+		.grid {
+			grid-template-columns: 365fr 365fr 503fr 503fr;
+			row-gap: 32px;
+		}
+
+		.component_article {
+			&:nth-child(3) {
+				background: url("../assets/images/articles/3-desktop.webp") 50% / cover;
+			}
+
+			&:nth-child(5) {
+				background: url("../assets/images/articles/5-desktop.webp") 50% / cover;
+			}
+		}
+	}
+}

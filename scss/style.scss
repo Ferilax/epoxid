@@ -1,0 +1,39 @@
+// Base
+@import "base/nullstyle"; // Обнуляющий стиль
+@import "base/fonts"; // Обнуляющий шрифты
+@import "base/global"; // Глобальные стили
+
+// Abstracts
+@import "abstracts/vars"; // Переменные
+@import "abstracts/mixins"; // Миксины
+@import "abstracts/templates"; // Шаблоны
+
+// Components
+@import "components/mark"; // Круг с кольцом для списков
+@import "components/breadcrumbs"; // Навигация
+@import "components/article"; // Статья
+@import "components/tabs"; // Табы
+
+// Laoyuts
+@import "layouts/header"; // Шапка
+@import "layouts/footer"; // Подвал
+@import "layouts/mobile-menu"; // Мобильное меню при клике на бургер
+@import "layouts/shops"; // Секция "где найти" без табов
+@import "layouts/where-to-find"; // Секция "где найти" с табами
+@import "layouts/other-articles"; // Секция со статьями
+@import "layouts/q-a"; // Секция вопросы-ответы
+@import "layouts/application-method"; // Секция "способ применения"
+@import "layouts/start-banner"; // Стартовая полноэкранная секция (не используется в главной странице)
+@import "layouts/key-features"; // Секция "ключевые характеристики"
+@import "layouts/drug-effect"; // Секция "Действие препарата"
+@import "layouts/footnotes"; // Секция со сносками
+@import "layouts/warning"; // Всплывающее предупреждение
+
+// Pages 
+@import "pages/main";
+@import "pages/articles";
+@import "pages/article";
+@import "pages/where-to-buy";
+@import "pages/instruction";
+@import "pages/emoxipin";
+@import "pages/emoxipin-neo";

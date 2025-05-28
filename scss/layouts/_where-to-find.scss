@@ -1,0 +1,118 @@
+.layout_where-to-find {
+	padding: 60px 0;
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		justify-content: space-between;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: 15px;
+		row-gap: 20px;
+	}
+
+	.shop {
+		border-radius: 20px;
+		background: var(--grey);
+		height: 103px;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img {
+			width: 80%;
+		}
+	}
+
+	.tabs {
+		margin-top: 40px;
+		display: flex;
+		gap: 10px;
+	}
+
+	.tab-system {
+		max-width: 430px;
+	}
+
+	.title {
+		@extend %title;
+	}
+
+	.text {
+		@include responsive-font(20, 24);
+		color: var(--dark-blue);
+		margin-top: 24px;
+	}
+
+	.image {
+		max-width: 160px;
+		margin: 24px auto 0;
+		height: 260px;
+		position: relative;
+
+		img {
+			height: 100%;
+			object-fit: cover;
+			width: 100%;
+		}
+
+		.shadow {
+			position: absolute;
+			z-index: -1;
+			pointer-events: none;
+			left: -7px;
+			bottom: 6px;
+			width: 475px;
+			height: 40px;
+		}
+	}
+
+	@media (width >=600px) {
+		.grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.shop {
+			height: 156px;
+		}
+	}
+
+	@media (width >=768px) {
+		.image {
+			margin-left: 70px;
+		}
+	}
+
+	@media (width >=900px) {
+		.grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	@media (width >=1440px) {
+		padding: 72px 0;
+
+		.container {
+			flex-direction: row;
+		}
+
+		.tabs,
+		.image {
+			margin-top: 24px;
+		}
+
+		.tabs {
+			gap: 20px;
+		}
+
+		.grid {
+			gap: 20px;
+			flex: 0 1 1117px;
+		}
+	}
+}

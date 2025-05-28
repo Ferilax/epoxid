@@ -1,0 +1,427 @@
+.page_emoxipin {
+	%title {
+		@include responsive-font(24, 56);
+		font-weight: 500;
+		color: var(--dark-blue);
+
+		@media (width >=1024px) {
+			font-weight: 700;
+		}
+	}
+
+	button.tab-trigger {
+		border: 1px solid var(--blue-2);
+	}
+
+	.tabs {
+		flex-wrap: wrap;
+	}
+
+	// ----------------------------------------------------------------------
+
+	.about-drug {
+		margin-top: 60px;
+
+		.title {
+			@extend %title;
+		}
+
+		.grid {
+			margin-top: 40px;
+
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 16px;
+		}
+
+		.card {
+			@include responsive-font(20, 24);
+			line-height: 1.1;
+			border-radius: 20px;
+			background: var(--light-blue);
+			padding: 20px;
+
+			display: flex;
+			gap: 10px;
+
+			&:last-child {
+				background: var(--grey);
+			}
+		}
+
+		.circle {
+			height: 30px;
+			min-width: 30px;
+			background: var(--blue);
+			border-radius: 50%;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			font-size: 10px;
+			color: white;
+
+			svg,
+			img {
+				width: 20px;
+				height: 20px;
+			}
+		}
+
+		.blue {
+			font-weight: 500;
+			color: var(--blue);
+		}
+
+		@media (width >=768px) {
+			.grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.circle {
+				min-width: 50px;
+				height: 50px;
+				font-size: 16px;
+
+				img,
+				svg {
+					width: 30px;
+					height: 30px;
+				}
+			}
+		}
+
+		@media (width >=1024px) {
+			margin-top: 90px;
+
+			.circle {
+				min-width: 70px;
+				height: 70px;
+				font-size: 20px;
+				font-weight: 500;
+
+				img,
+				svg {
+					width: 50px;
+					height: 50px;
+				}
+			}
+		}
+
+		@media (width >=1440px) {
+			margin-top: 120px;
+
+			.grid {
+				grid-template-columns: 320fr 320fr 320fr 780fr;
+				gap: 20px;
+			}
+
+			.text {
+				display: flex;
+				flex-direction: column;
+				gap: 24px;
+			}
+
+			.circle {
+				min-width: 103px;
+				height: 103px;
+				font-size: 32px;
+
+				img,
+				svg {
+					width: unset;
+					height: unset;
+				}
+			}
+
+			.card {
+				padding: 30px;
+				flex-direction: column;
+				align-items: start;
+				gap: 20px;
+			}
+		}
+	}
+
+	.layout_drug-effect {
+		margin-top: 60px;
+
+		@media (width >=1024px) {
+			margin-top: 100px;
+		}
+	}
+
+	.indications-for-use {
+		padding: 60px 0;
+		background: var(--light-blue);
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			gap: 40px;
+		}
+
+		.title {
+			@extend %title;
+		}
+
+		.tabs {
+			display: flex;
+			gap: 10px;
+		}
+
+		.tab-trigger {
+			background: var(--light-blue);
+		}
+
+		.flex {
+			position: relative;
+		}
+
+		.tab-content {
+			border-radius: 10px;
+			background: white;
+			padding: 20px;
+			transition: 0.2s;
+
+			&:nth-child(1) {
+				.name {
+					background: linear-gradient(to right, #2152A9, #4DB8FF);
+				}
+			}
+
+			&:nth-child(2) {
+				.name {
+					background: linear-gradient(to right, #04803E, #4DB8FF);
+				}
+			}
+		}
+
+		.name {
+			display: none;
+			max-width: 474px;
+			font-size: 32px;
+			font-weight: 700;
+			padding: 0 20px;
+			border-radius: 10px;
+			color: white;
+			height: 53px;
+			align-items: center;
+		}
+
+		.ul {
+			font-size: 18px;
+			line-height: 1.1;
+
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
+			max-width: 510px;
+		}
+
+		.li {
+			padding-left: 20px;
+			position: relative;
+
+			&::after {
+				transition: 0.2s;
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+				width: 13px;
+				height: 13px;
+				border-radius: 50%;
+				background: var(--blue);
+			}
+		}
+
+		@media (width >=1024px) {
+			padding: 85px 0 100px;
+
+			.tabs {
+				display: none;
+			}
+
+			.flex {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 22px;
+			}
+
+			.tab-content {
+				padding: 30px;
+				display: block;
+			}
+
+			.name {
+				display: flex;
+			}
+
+			.ul {
+				margin-top: 24px;
+			}
+
+			.li {
+				padding-left: 33px;
+
+				&::after {
+					left: 10px;
+				}
+			}
+		}
+
+		@media (width >=1440px) {
+			.tab-content {
+				&:nth-child(1) {
+					background: url("../assets/images/indications-woman.webp") right no-repeat white;
+
+					&:hover {
+						background-image: url("../assets/images/indications-woman-hover.webp");
+					}
+				}
+
+				&:nth-child(2) {
+					background: url("../assets/images/indications-man.webp") right no-repeat white;
+
+					&:hover {
+						background-image: url("../assets/images/indications-man-hover.webp");
+					}
+				}
+			}
+
+			.tab-content {
+				&:hover {
+					.li::after {
+						background: #209DC933;
+					}
+				}
+			}
+		}
+	}
+
+	.opening {
+		padding: 60px 0;
+
+		.title {
+			@extend %title;
+		}
+
+		.splide {
+			margin-top: 40px;
+		}
+
+		.splide__track {
+			@extend %splide-margin;
+
+		}
+
+		.image {
+			width: 80%;
+			align-self: center;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.splide__slide {
+			background: var(--grey);
+			border-radius: 15px;
+			padding: 16px;
+			position: relative;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: end;
+
+			&:nth-child(1) {
+				gap: 34px;
+
+				.image {
+					max-width: 285px;
+				}
+			}
+
+			&:nth-child(2) {
+				gap: 20px;
+
+				.image {
+					max-width: 390px;
+				}
+			}
+
+			&:nth-child(3) {
+				gap: 47px;
+
+				.image {
+					max-width: 360px;
+				}
+			}
+		}
+
+		.number {
+			position: absolute;
+			top: 16px;
+			left: 16px;
+			height: 40px;
+			width: 40px;
+			background: var(--blue);
+			border-radius: 50%;
+			font-size: 24px;
+			font-weight: 500;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+		}
+
+		.text {
+			font-size: 18px;
+			line-height: 1.2;
+		}
+
+
+		@media (width >=1024px) {
+			.splide__slide {
+				border-radius: 20px;
+
+				&:nth-child(1) {
+					gap: 45px;
+				}
+
+				&:nth-child(2) {
+					gap: 6px;
+				}
+
+				&:nth-child(3) {
+					gap: 27px;
+				}
+			}
+		}
+
+		@media (width >=1440px) {
+			padding: 40px 0;
+
+			.number {
+				width: 50px;
+				height: 50px;
+			}
+		}
+	}
+
+	.layout_other-articles {
+		padding: 60px 0;
+
+		@media (width >=1440px) {
+			padding: 80px 0;
+
+			.splide__track {
+				margin-top: 64px;
+			}
+		}
+	}
+}

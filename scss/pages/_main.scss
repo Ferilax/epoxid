@@ -1,0 +1,1040 @@
+.page_menu {
+	margin-bottom: 20px;
+
+	.container {
+		padding: 0 24px;
+	}
+
+	.start-banner {
+		color: white;
+
+		.container {
+			width: 100%;
+		}
+
+		.splide__list {
+			align-items: stretch;
+			height: 100dvh !important;
+			min-height: min-content;
+		}
+
+		.splide__slide {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			min-height: min-content;
+			padding: 200px var(--container-padding) 150px;
+
+			width: 100%;
+
+			&:nth-child(1) {
+				background: url("../assets/images/backgrounds/green-mobile.webp") 50% / cover;
+			}
+
+			&:nth-child(2) {
+				background: url("../assets/images/backgrounds/purple-2-mobile.jpg") 50% / cover;
+			}
+		}
+
+		.left {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.title {
+			@extend %h1;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		.subtitle {
+			@include responsive-font(16, 40);
+			line-height: 1.2;
+			margin-top: 20px;
+			font-weight: 500;
+		}
+
+		.list {
+			margin-top: 20px;
+
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.list-item {
+			padding: 16px;
+			background: #2A28584D;
+			border-radius: 10px;
+			width: 260px;
+
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.next {
+			position: absolute;
+			right: var(--container-padding);
+			top: calc(50% + 90px);
+			z-index: 1;
+
+			width: 20px;
+			height: 50px;
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.image {
+			margin-top: 20px;
+			width: 105%;
+			max-width: 450px;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.detailed {
+			@extend %button-outline;
+			position: absolute;
+			bottom: 82px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		@keyframes arrow {
+			0% {
+				transform: translate(-50%, -20%);
+			}
+
+			50% {
+				transform: translate(-50%, 20%);
+			}
+
+			100% {
+				transform: translate(-50%, -20%);
+			}
+		}
+
+		.arrow-down {
+			display: flex;
+			justify-content: center;
+			animation: arrow 1s infinite;
+
+			position: absolute;
+			left: 50%;
+			bottom: 28px;
+			transform: translate(-50%, 0);
+		}
+
+		.desktop {
+			display: none;
+		}
+
+		br {
+			display: none;
+		}
+
+		// ------------------------------------------------------------------------------
+		@media (width >=1024px) {
+			.splide__slide {
+				flex-direction: row;
+				justify-content: space-between;
+				gap: 40px;
+
+				&:nth-child(1) {
+					background-image: url("../assets/images/backgrounds/green-desktop.webp");
+				}
+
+				&:nth-child(2) {
+					background-image: url("../assets/images/backgrounds/purple-desktop.jpg");
+				}
+			}
+
+			br {
+				display: block;
+			}
+
+			.image {
+				margin: 0;
+				max-width: unset;
+				flex: 0 1 700px;
+				width: auto;
+			}
+
+			.arrow-down {
+				bottom: 100px;
+			}
+
+
+			.title {
+				text-align: left;
+			}
+
+			.subtitle {
+				margin: 0;
+			}
+
+			.left {
+				align-items: start;
+
+				gap: 32px;
+
+				margin-left: calc((100vw - 100%) / 2 + 54px);
+			}
+
+			.detailed {
+				position: static;
+				transform: none;
+			}
+
+			.list {
+				margin: 0;
+			}
+
+			.list-item {
+				width: auto;
+			}
+
+			.next {
+				top: 50%;
+				transform: translateY(-50%);
+				width: 32px;
+				height: 80px;
+			}
+		}
+
+		@media (width >=1440px) {
+			.drug-2.list {
+				background: #2A28584D;
+				border-radius: 10px;
+			}
+
+			.drug-2.list-item {
+				background: none;
+			}
+
+			.left {
+				gap: 54px;
+			}
+
+			.list {
+				flex-direction: row;
+				gap: 0;
+			}
+		}
+
+		@media (width >=1920px) {
+			.left {
+				margin-left: calc((100vw - 1920px) / 2 + 110px);
+			}
+
+			.next {
+				right: calc((100vw - 1920px) / 2 + 200px);
+			}
+
+			.image {
+				margin-right: calc((100vw - 1920px) / 2 + 160px);
+			}
+		}
+	}
+
+	.drugs-splide {
+		margin-top: 20px;
+		color: white;
+
+		.splide__slide {
+			background: 100% / cover;
+			border-radius: 15px;
+			padding: 20px;
+
+			display: flex;
+			flex-direction: column-reverse;
+			justify-content: start;
+
+			&:nth-child(1) {
+				background-image: url("../assets/images/gradients/green-1.webp");
+
+				.where-to-find {
+					background: var(--green);
+				}
+			}
+
+			&:nth-child(2) {
+				background-image: url("../assets/images/gradients/purple-1.webp");
+
+				.where-to-find {
+					background: var(--blue-2);
+				}
+			}
+		}
+
+		.content {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			flex: 1 1 auto;
+		}
+
+		.title {
+			@extend %h3;
+		}
+
+		.list {
+			@include responsive-font(14, 24);
+
+			display: flex;
+			flex-direction: column;
+			gap: 14px;
+			line-height: 1.3;
+		}
+
+		.list-item {
+			display: flex;
+			gap: 10px;
+		}
+
+		.component_li-mark {
+			width: 16px;
+			flex: 0 0 16px;
+			height: 16px;
+			margin-top: 2px;
+
+			&::after {
+				width: 9px;
+				height: 9px;
+			}
+		}
+
+		.buttons {
+			display: flex;
+			gap: 10px;
+			flex-direction: column;
+			margin-top: auto;
+		}
+
+		.detailed {
+			@extend %button;
+		}
+
+		.where-to-find {
+			@extend %button;
+			color: white;
+		}
+
+		.image {
+			max-width: 184px;
+			margin: 0 auto;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		@media (width < 768px) {
+			margin-left: calc(var(--container-padding) * -1);
+			margin-right: calc(var(--container-padding) * -1);
+		}
+
+		@media (width >=1024px) {
+			.content {
+				gap: 40px;
+			}
+
+			.component_li-mark {
+				margin-top: 5px;
+			}
+		}
+
+		@media (width >=1440px) {
+			.splide__slide {
+				flex-direction: row;
+				padding: 0;
+			}
+
+			.content {
+				padding: 40px;
+				flex: 1 1 480px;
+			}
+
+			.image {
+				flex: 0 1 410px;
+				max-width: unset;
+				margin: auto 0;
+			}
+
+			.buttons {
+				flex-direction: row;
+				gap: 24px;
+			}
+
+			.where-to-find,
+			.detailed {
+				flex: 0 0 auto;
+			}
+
+			.component_li-mark {
+				margin-top: 8px;
+			}
+		}
+	}
+
+	.slide-show {
+		// В этой секции чертовски дьявольский код. У меня не было времени возиться с библиотеками, поэтому я написал эту страшную шайтан-машину.
+		// Все анимации зависят от счетчика сцен.
+		// У каждой анимируемой части есть своя очередь data-scene, и им присваиваются классы в зависимости от того, не настала ли /активна ли /прошла ли их очередь
+
+		margin-top: 20px;
+		min-height: 680px;
+		background: url("../assets/images/gradients/2.webp") 100% / cover;
+		color: white;
+		overflow: hidden;
+		transition: 0.4s;
+
+		display: flex;
+		flex-direction: column;
+
+		--image: url("../assets/images/eye-mobile-1.webp");
+
+		&[data-current-scene="1"] {
+			.inactive {
+				display: none;
+			}
+		}
+
+		&[data-current-scene="5"] {
+			--image: url("../assets/images/eye-mobile-2.webp");
+		}
+
+		&[data-current-scene="6"] {
+			--image: url("../assets/images/eye-mobile-3.webp");
+		}
+
+		&[data-current-scene="7"] {
+			--image: url("../assets/images/eye-mobile-4.webp");
+		}
+
+		&:has(.antioxidant.active),
+		&:has(.antioxidant.completed) {
+			--image: url("../assets/images/eye-mobile-4.webp");
+
+			.radical {
+				position: absolute;
+				visibility: hidden;
+				opacity: 0;
+			}
+		}
+
+		&[data-current-scene="10"]:has(.antioxidant.completed) {
+			--image: url("../assets/images/eye-mobile-3.webp");
+		}
+
+		&[data-current-scene="11"]:has(.antioxidant.completed) {
+			--image: url("../assets/images/eye-mobile-2.webp");
+		}
+
+		&[data-current-scene="12"]:has(.antioxidant.completed) {
+			--image: url("../assets/images/eye-mobile-1.webp");
+		}
+
+		&[data-current-scene="13"] {
+
+			.antioxidant .list,
+			.image {
+				height: 0;
+				visibility: hidden;
+				opacity: 0;
+			}
+
+			.antioxidant.completed {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+
+		// --------------------------------
+
+		.container {
+			position: relative;
+			flex: 1 1 auto;
+			width: 100%;
+
+			display: flex;
+			flex-direction: column;
+		}
+
+		.flex {
+			position: relative;
+			padding: 50px 20px 20px;
+			margin: 0 auto;
+
+			width: 100%;
+			max-width: 600px;
+			flex: 1 1 auto;
+		}
+
+		.desktop {
+			display: none;
+		}
+
+		img {
+			width: 100%;
+		}
+
+		// --------------------------------
+
+		*[data-scene] {
+			transition: 0.4s;
+		}
+
+		.inactive {
+			visibility: hidden;
+			opacity: 0;
+			height: 0;
+		}
+
+		.active,
+		.completed {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		// --------------------------------
+
+		.title {
+			@include responsive-font(24, 96);
+			font-weight: 900;
+
+			visibility: visible;
+
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		.title.completed {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		// --------------------------------
+
+		.radical {
+			position: relative;
+			top: 280px;
+		}
+
+		.radical.completed {
+			top: 0;
+		}
+
+		// --------------------------------
+
+		.antioxidant.inactive {
+			height: 0;
+		}
+
+		.antioxidant {
+			position: relative;
+			top: 280px;
+
+			.list {
+				margin-top: 30px;
+			}
+		}
+
+		.antioxidant.completed {
+			position: relative;
+			top: 0;
+		}
+
+		// --------------------------------
+
+		.name {
+			@include responsive-font(24, 40);
+			font-weight: 900;
+			text-align: center;
+		}
+
+		.text {
+			@include responsive-font(14, 18);
+
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+
+			text-align: center;
+			line-height: 1.1;
+			font-weight: 500;
+
+			margin-top: 20px;
+		}
+
+		.image {
+			margin: 20px auto 0;
+			background: var(--image) 100% / cover;
+			border-radius: 10px;
+			aspect-ratio: 287/92;
+		}
+
+		.list {
+			@include responsive-font(16, 18);
+			margin-top: 10px;
+			font-weight: 500;
+			line-height: 1.2;
+
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		// --------------------------------
+
+		.inner-list {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			background: #FFFFFF80;
+			padding: 8px;
+			border-radius: 16px;
+			margin: 0;
+		}
+
+		.inner-list.inactive {
+			transform: translateY(60px);
+		}
+
+		// --------------------------------
+
+		.list-item {
+			background: #E11A1D;
+			border-radius: 8px;
+			padding: 8px;
+			position: relative;
+
+			display: flex;
+			align-items: center;
+		}
+
+		.list-item.inactive {
+			transform: translateY(60px);
+		}
+
+		.first-item {
+			min-height: 54px;
+		}
+
+		// --------------------------------
+
+		.white-item {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+
+			background: white;
+			color: #1C1C1C;
+		}
+
+		.white-item.inactive {
+			transform: translateX(100%);
+		}
+
+		// --------------------------------
+
+		.antioxidant-image {
+			width: 185px;
+			margin: 0 auto;
+		}
+
+		.body {
+			border-radius: 10px;
+			background: url("../assets/images/gradients/2.webp") 100% / cover;
+			flex: 1 1 auto;
+			display: none;
+			padding: 62px;
+			justify-content: space-between;
+			gap: 60px;
+			overflow: hidden;
+			cursor: pointer;
+		}
+
+		.face {
+			flex: 0 1 720px;
+			height: 776px;
+			border-radius: 20px;
+			background: var(--image-desktop) 100% / cover;
+			transition: 0.7s ease-out;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			position: relative;
+
+			&::after {
+				content: "";
+				position: absolute;
+				bottom: -60px;
+				right: -60px;
+				width: 309px;
+				height: 480px;
+
+				transition: 0.4s;
+				transform: translateX(-100%);
+				opacity: 0;
+				visibility: hidden;
+
+				background: url("../assets/images/antioxidant.webp") center / contain no-repeat;
+			}
+		}
+
+		.other {
+			flex: 0 1 820px;
+		}
+
+		.face.inactive {
+			transform: translateX(-50%);
+		}
+
+		// -------------------------------------------------------------------
+
+		@media (width >=1440px) {
+			background: none;
+			min-height: 900px;
+
+			.body {
+				transition: 0.4s;
+				background-image: url("../assets/images/gradients/4.jpg");
+			}
+
+			--image-desktop: url("../assets/images/eye-desktop-1.webp");
+
+			&[data-current-scene="1"] {
+				.inactive {
+					display: unset;
+				}
+
+				.body {
+					background: url("../assets/images/gradients/3.jpg") 100% / cover;
+				}
+			}
+
+			&[data-current-scene="2"] {
+				.list {
+					&:after {
+						display: block;
+						top: 47px;
+					}
+				}
+			}
+
+			&[data-current-scene="3"] {
+				.list {
+					&:after {
+						display: block;
+						top: 197px;
+					}
+				}
+
+				--image-desktop: url("../assets/images/eye-desktop-2.webp");
+			}
+
+			&[data-current-scene="4"] {
+				--image-desktop: url("../assets/images/eye-desktop-3.webp");
+
+				.list {
+					&:after {
+						display: block;
+						top: 337px;
+					}
+				}
+			}
+
+			&[data-current-scene="5"] {
+				--image-desktop: url("../assets/images/eye-desktop-4.webp");
+
+				.list {
+					&:after {
+						display: block;
+						top: 477px;
+					}
+				}
+			}
+
+			&[data-current-scene="6"] {
+				--image-desktop: url("../assets/images/eye-desktop-3.webp");
+			}
+
+			&[data-current-scene="7"] {
+				--image-desktop: url("../assets/images/eye-desktop-2.webp");
+			}
+
+			&:has(.list-item.completed.last) {
+				.inner-list {
+					visibility: hidden;
+					opacity: 0;
+					margin-top: -160px;
+				}
+
+				.list-item {
+					&::before {
+						display: none;
+					}
+				}
+			}
+
+			&:has(.set-2.active),
+			&:has(.set-2.completed) {
+				.set-1 {
+					height: 0;
+					visibility: hidden;
+					opacity: 0;
+				}
+
+				.face {
+					&:after {
+						opacity: 1;
+						visibility: visible;
+						transform: none;
+					}
+				}
+			}
+
+			.list-item:has(.white-item.active),
+			.list-item:has(.white-item.completed) {
+				background: none;
+
+				.main-item {
+					opacity: 0;
+				}
+
+				&::after {
+					background: white;
+				}
+			}
+
+			.set-2.inactive {
+				height: 0;
+			}
+
+			.set-1 {
+				transition: 0.5s ease-out;
+			}
+
+			.set-1.inactive {
+				transform: translateY(-300%);
+			}
+
+			.inner-list.inactive {
+				transform: translateY(-300%);
+			}
+
+			.mobile {
+				display: none;
+			}
+
+			.body {
+				display: flex;
+			}
+
+			.name {
+				text-align: left;
+			}
+
+			.text {
+				text-align: left;
+				margin-bottom: 57px;
+				margin-top: 24px;
+			}
+
+			.list {
+				margin: 0;
+				gap: 50px;
+				align-items: start;
+				padding-left: 40px;
+			}
+
+			.inner-list {
+				padding: 10px;
+				flex-direction: row;
+				gap: 5px;
+				position: relative;
+				transition: 0.7s ease-out;
+
+				.list-item {
+					&::after {
+						display: none;
+					}
+				}
+			}
+
+			.list-item {
+				height: 90px;
+				padding: 0 25px;
+
+				&:nth-child(3) {
+					max-width: 650px;
+				}
+
+				&:nth-child(4) {
+					max-width: 580px;
+				}
+			}
+
+			.list {
+				position: relative;
+
+				&::after {
+					content: "";
+					left: 1px;
+					position: absolute;
+					transition: 0.6s;
+
+					width: 16px;
+					height: 16px;
+					border-radius: 50%;
+					background: #E11A1D;
+					display: none;
+				}
+			}
+
+			.list-item,
+			.inner-list {
+				&::after {
+					content: "";
+					top: 50%;
+					left: -42px;
+					transform: translateY(-50%);
+					position: absolute;
+
+					width: 22px;
+					height: 22px;
+					border-radius: 50%;
+				}
+			}
+
+			.list-item.inactive {
+				transform: none;
+			}
+
+			.list-item.active,
+			.inner-list.active {
+				&::after {
+					background: white;
+				}
+			}
+
+			.list-item,
+			.inner-list {
+				&::before {
+					content: "";
+					position: absolute;
+					left: -41px;
+					top: 50%;
+					height: 0;
+					width: 20px;
+					background: url(../assets/images/icons/arrow-down-red.svg) center / contain no-repeat;
+					transition: 0.4s;
+				}
+
+				&:last-child {
+					&::before {
+						display: none;
+					}
+				}
+			}
+
+			.list-item.completed,
+			.inner-list.completed {
+				&::after {
+					background: #E11A1D;
+				}
+
+				&::before {
+					height: 120px;
+				}
+			}
+
+			.white-item {
+				width: max-content;
+				max-width: 652px;
+				border-radius: 8px;
+				padding: 0 25px;
+
+				display: flex;
+				align-items: center;
+			}
+
+		}
+	}
+
+	#drugs-splide-2 {
+		.desktop {
+			display: none;
+		}
+
+		.title {
+			@include responsive-font(36, 52);
+			text-align: center;
+			font-weight: 700;
+		}
+
+		.content {
+			gap: 14px;
+		}
+
+		.image {
+			width: 100%;
+			max-width: unset;
+		}
+
+		@media (width >=1440px) {
+			.mobile {
+				display: none;
+			}
+
+			.desktop {
+				display: block;
+			}
+
+			.title {
+				text-align: left;
+			}
+
+			.image {
+				width: unset;
+				flex: 0 1 440px;
+			}
+
+			.buttons {
+				flex-direction: column;
+				align-items: start;
+			}
+
+			.content {
+				flex: 0 1 480px;
+			}
+		}
+
+		@media (width >=1700px) {
+			.buttons {
+				flex-direction: row;
+			}
+		}
+	}
+}

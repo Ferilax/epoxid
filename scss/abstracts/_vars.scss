@@ -1,0 +1,34 @@
+:root {
+	--grey: #F5F5F5;
+	--light-blue: #DDF2FF;
+	--green: #04803E;
+	--blue: #209DC9;
+	--blue-2: #014ED7;
+	--dark-blue: #0A2653;
+	--dark: #1C1C1C;
+	--dark-grey: #6A6A6A;
+
+	--z-header: 100;
+	--z-mobile-menu: 90;
+	--z-select: 10;
+
+	--header-height: 110px;
+
+	--container-padding: 24px;
+
+	@media (width >=768px) {
+		--container-padding: 32px;
+	}
+
+	@media (width >=1023px) {
+		--container-padding: 44px;
+	}
+
+	@media (width >=1200px) {
+		--header-height: 90px;
+	}
+
+	@media (width >=1440px) {
+		--container-padding: 60px;
+	}
+}

@@ -1,0 +1,145 @@
+#header {
+	background: white;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: var(--z-header);
+
+	.container {
+		padding: 0 24px;
+	}
+
+	.body {
+		padding: 40px 0 20px;
+		height: var(--header-height);
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.title-box {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		align-items: start;
+	}
+
+	.title {
+		@include responsive-font(23, 32);
+		font-weight: 700;
+		color: var(--dark-blue);
+	}
+
+	.subtitle {
+		@include responsive-font(10, 14);
+
+		line-height: 1.1;
+		color: var(--dark-blue);
+	}
+
+	.nav {
+		@extend %button-font;
+
+		margin-left: auto;
+		display: none;
+		gap: 40px;
+		color: var(--dark-blue);
+	}
+
+	.where-to-find {
+		display: none;
+		@extend %button-with-icon;
+		margin-left: 32px;
+	}
+
+	.mobile-menu-trigger {
+		width: 50px;
+		height: 50px;
+		flex: 0 0 50px;
+
+		border-radius: 50%;
+		border: 2px solid var(--dark-blue);
+
+		position: relative;
+
+		span {
+			height: 2px;
+			border-radius: 50px;
+			width: 26px;
+			background: var(--dark-blue);
+
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			transition: 0.3s;
+
+			&:nth-child(1) {
+				top: calc(50% - 6px);
+			}
+
+			&:nth-child(2) {
+				top: 50%;
+			}
+
+			&:nth-child(3) {
+				top: calc(50% + 6px);
+			}
+		}
+	}
+
+	// ----------------------------------------------------------
+	@media (width >=1200px) {
+		top: 20px;
+		background: none;
+
+		.body {
+			padding: 0 40px;
+			border-radius: 10px;
+			justify-content: start;
+			background: white;
+		}
+
+		.nav {
+			display: flex;
+		}
+
+		.mobile-menu-trigger {
+			display: none;
+		}
+
+		.where-to-find {
+			display: flex;
+		}
+	}
+
+	@media (width >=1440px) {
+		.title-box {
+			flex-direction: row;
+			gap: 24px;
+		}
+	}
+}
+
+#header.open {
+	.mobile-menu-trigger {
+		span {
+			top: 50%;
+
+			&:nth-child(1) {
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+
+			&:nth-child(2) {
+				display: none;
+			}
+
+			&:nth-child(3) {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+		}
+	}
+}
