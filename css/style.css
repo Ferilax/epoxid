@@ -1064,13 +1064,13 @@ main.pt {
   height: 464px;
 }
 .layout_other-articles .component_article:nth-child(1) {
-  background: url("../../assets/images/articles/2-desktop.webp") 50%/cover no-repeat;
+  background: url("../assets/images/articles/2-desktop.webp") 50%/cover no-repeat;
 }
 .layout_other-articles .component_article:nth-child(2) {
-  background: url("../../assets/images/articles/5-mobile.webp") 50%/cover no-repeat;
+  background: url("../assets/images/articles/5-mobile.webp") 50%/cover no-repeat;
 }
 .layout_other-articles .component_article:nth-child(3) {
-  background: url("../../assets/images/articles/6-mobile.webp") 50%/cover no-repeat;
+  background: url("../assets/images/articles/6-mobile.webp") 50%/cover no-repeat;
 }
 @media (width >= 1024px) {
   .layout_other-articles .see-all.desktop {
@@ -1092,11 +1092,11 @@ main.pt {
   }
   .layout_other-articles .component_article:nth-child(2) {
     flex: 1 1 508px;
-    background: url("../../assets/images/articles/5-desktop.webp") 50%/cover no-repeat;
+    background: url("../assets/images/articles/5-desktop.webp") 50%/cover no-repeat;
   }
   .layout_other-articles .component_article:nth-child(3) {
     flex: 1 1 750px;
-    background: url("../../assets/images/articles/6-desktop.webp") 50%/cover no-repeat;
+    background: url("../assets/images/articles/6-desktop.webp") 50%/cover no-repeat;
   }
 }
 
@@ -1463,7 +1463,7 @@ main.pt {
 @media (width >= 1024px) {
   .layout_start-banner {
     padding: 200px 0 100px;
-    background: url("../../assets/images/backgrounds/green-hand.webp") right -60% center/70% no-repeat, url("../assets/images/backgrounds/green-desktop.webp") 50%/cover no-repeat;
+    background: url("../assets/images/backgrounds/green-hand.webp") right -60% center/70% no-repeat, url("../assets/images/backgrounds/green-desktop.webp") 50%/cover no-repeat;
   }
   .layout_start-banner .image {
     display: none;
@@ -1501,7 +1501,7 @@ main.pt {
 }
 @media (width >= 1440px) {
   .layout_start-banner {
-    background: url("../../assets/images/backgrounds/green-hand.webp") right bottom/50% no-repeat, url("../assets/images/backgrounds/green-desktop.webp") 50%/cover no-repeat;
+    background: url("../assets/images/backgrounds/green-hand.webp") right bottom/50% no-repeat, url("../assets/images/backgrounds/green-desktop.webp") 50%/cover no-repeat;
   }
   .layout_start-banner .list {
     flex-direction: row;
@@ -3490,7 +3490,7 @@ main.pt {
   flex-wrap: wrap;
 }
 .page_emoxipin-neo .layout_start-banner {
-  background-image: url("../../assets/images/backgrounds/purple-mobile.webp");
+  background-image: url("../assets/images/backgrounds/purple-mobile.webp");
 }
 .page_emoxipin-neo .layout_start-banner .subtitle {
   max-width: 600px;
@@ -3503,7 +3503,7 @@ main.pt {
 }
 @media (width >= 1024px) {
   .page_emoxipin-neo .layout_start-banner {
-    background: url("../../assets/images/backgrounds/purple-hand.webp") right -60% center/70% no-repeat, url("../assets/images/backgrounds/purple-desktop.jpg") 50%/cover no-repeat;
+    background: url("../assets/images/backgrounds/purple-hand.webp") right -60% center/70% no-repeat, url("../assets/images/backgrounds/purple-desktop.jpg") 50%/cover no-repeat;
   }
   .page_emoxipin-neo .layout_start-banner .subtitle {
     max-width: 700px;
@@ -3511,7 +3511,7 @@ main.pt {
 }
 @media (width >= 1440px) {
   .page_emoxipin-neo .layout_start-banner {
-    background: url("../../assets/images/backgrounds/purple-hand.webp") right bottom/50% no-repeat, url("../assets/images/backgrounds/purple-desktop.jpg") 50%/cover no-repeat;
+    background: url("../assets/images/backgrounds/purple-hand.webp") right bottom/50% no-repeat, url("../assets/images/backgrounds/purple-desktop.jpg") 50%/cover no-repeat;
   }
   .page_emoxipin-neo .layout_start-banner .subtitle {
     max-width: 840px;

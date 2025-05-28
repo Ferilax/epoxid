@@ -34,15 +34,15 @@
 		height: 464px;
 
 		&:nth-child(1) {
-			background: url("../../assets/images/articles/2-desktop.webp") 50% / cover no-repeat;
+			background: url("../assets/images/articles/2-desktop.webp") 50% / cover no-repeat;
 		}
 
 		&:nth-child(2) {
-			background: url("../../assets/images/articles/5-mobile.webp") 50% / cover no-repeat;
+			background: url("../assets/images/articles/5-mobile.webp") 50% / cover no-repeat;
 		}
 
 		&:nth-child(3) {
-			background: url("../../assets/images/articles/6-mobile.webp") 50% / cover no-repeat;
+			background: url("../assets/images/articles/6-mobile.webp") 50% / cover no-repeat;
 		}
 	}
 
@@ -75,12 +75,12 @@
 
 			&:nth-child(2) {
 				flex: 1 1 508px;
-				background: url("../../assets/images/articles/5-desktop.webp") 50% / cover no-repeat;
+				background: url("../assets/images/articles/5-desktop.webp") 50% / cover no-repeat;
 			}
 
 			&:nth-child(3) {
 				flex: 1 1 750px;
-				background: url("../../assets/images/articles/6-desktop.webp") 50% / cover no-repeat;
+				background: url("../assets/images/articles/6-desktop.webp") 50% / cover no-repeat;
 			}
 		}
 	}
