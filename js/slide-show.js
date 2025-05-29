@@ -11,6 +11,7 @@
 	const slideShow = document.querySelector(".slide-show");
 	const allScenes = document.querySelectorAll("[data-scene]");
 	const html = document.querySelector("html");
+	const header = document.querySelector("#header");
 
 	// Текущая активная сцена
 	let currentScene = 1;
@@ -62,6 +63,7 @@
 	let lastScrollTime = 0; // Время последнего скролла
 	const scrollDelay = 300; // Задержка в мс (0.5 секунды)
 	let allScenesIsPlayed = false;
+	let deltaY;
 
 	// Функция проверки, находится ли центр блока в центре экрана
 	function isCenterInView() {
@@ -89,15 +91,28 @@
 	// Блокировка скролла
 	function lockScroll() {
 		isScrollLocked = true;
-		console.log("Скролл заблокирован!");
+
+		const scrollWidth = window.innerWidth - document.documentElement.clientWidth;
+		document.body.style.paddingRight = scrollWidth + "px";
+		header.style.transform = `translateX(-${scrollWidth / 2}px)`;
+
 		html.classList.add("slide-showed");
 	}
 
 	// Разблокировка скролла
-	function unlockScroll() {
+	function unlockScroll(finallyUnlock = false) {
 		isScrollLocked = false;
-		allScenesIsPlayed = true;
+
 		html.classList.remove("slide-showed");
+		document.body.style.paddingRight = "";
+		header.style.transform = "";
+
+		if (finallyUnlock) {
+			allScenesIsPlayed = true;
+			window.removeEventListener("scroll", scrollEvent);
+			window.removeEventListener("wheel", wheelEvent);
+			window.removeEventListener("touchmove", touchmoveEvent);
+		}
 	}
 
 	function onLockedScroll() {
@@ -109,7 +124,7 @@
 
 		// Разблокируем скролл при достижении последней сцены
 		if (currentScene >= maxScenes) {
-			unlockScroll();
+			unlockScroll(true);
 			return;
 		}
 
@@ -122,26 +137,30 @@
 	}
 
 	// Запрещаем скролл колесом мыши/тачпадом при блокировке
-	window.addEventListener("scroll", (e) => {
-		if (!isScrollLocked && !allScenesIsPlayed && isCenterInView()) {
+	function scrollEvent() {
+		if (!isScrollLocked && !allScenesIsPlayed && isCenterInView() && deltaY > 0) {
 			scrollToBlockCenter();
 			lockScroll();
 		}
+	}
+	window.addEventListener("scroll", scrollEvent);
 
-	});
+	function wheelEvent(e) {
+		deltaY = e.deltaY;
+		if (isScrollLocked) {
+			if (e.deltaY < 0) {
+				unlockScroll();
+			}
+			onLockedScroll();
+		}
+	}
+	window.addEventListener("wheel", wheelEvent);
 
-	// Запрещаем скролл колесом мыши/тачпадом при блокировке
-	window.addEventListener("wheel", (e) => {
+	function touchmoveEvent() {
 		if (isScrollLocked) {
 			onLockedScroll();
 		}
-	});
-
-	// Запрещаем скролл на тач-устройствах
-	window.addEventListener("touchmove", (e) => {
-		if (isScrollLocked) {
-			onLockedScroll();
-		}
-	});
+	}
+	window.addEventListener("touchmove", touchmoveEvent);
 }());
 

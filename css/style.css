@@ -4021,7 +4021,6 @@ html.slide-showed {
   background-clip: text;
   /* Делаем текст прозрачным, чтобы был виден градиент */
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
 }
 .page_404 .gradient {
   margin-top: -20px;
