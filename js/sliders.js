@@ -28,25 +28,25 @@
 		const nextButton = document.querySelector(nextSelector);
 
 		// Обработчик для кнопки "Назад"
-		prevButton?.addEventListener('click', () => {
+		prevButton?.addEventListener("click", () => {
 			if (loop && splide.index === 0) {
 				splide.go(splide.length - 1); // Переход к последнему слайду
 			} else if (splide.index > 0) {
-				splide.go('-1');
+				splide.go("-1");
 			}
 		});
 
 		// Обработчик для кнопки "Вперед"
-		nextButton?.addEventListener('click', () => {
+		nextButton?.addEventListener("click", () => {
 			if (loop && splide.index === splide.length - 1) {
 				splide.go(0); // Переход к первому слайду
 			} else if (splide.index < splide.length - 1) {
-				splide.go('+1');
+				splide.go("+1");
 			}
 		});
 
 		// Обновление состояния кнопок
-		splide?.on('move', (newIndex) => {
+		splide?.on("move", (newIndex) => {
 			if (!loop) {
 				prevButton.disabled = newIndex === 0;
 				nextButton.disabled = newIndex === splide.length - 1;

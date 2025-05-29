@@ -177,11 +177,6 @@ body {
   scroll-behavior: smooth;
   color: #1C1C1C;
 }
-@media (max-width: 1200px) {
-  body.lock {
-    overflow: hidden;
-  }
-}
 
 main.pt {
   padding-top: var(--header-height);
@@ -200,6 +195,15 @@ main.pt {
 
 .wrapper {
   position: relative;
+}
+
+@media (max-width: 1200px) {
+  html.lock {
+    overflow: hidden;
+  }
+}
+html.slide-showed {
+  overflow: hidden;
 }
 
 :root {
