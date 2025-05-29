@@ -11,7 +11,6 @@
 	const slideShow = document.querySelector(".slide-show");
 	const allScenes = document.querySelectorAll("[data-scene]");
 	const html = document.querySelector("html");
-	const header = document.querySelector("#header");
 
 	// Текущая активная сцена
 	let currentScene = 1;
@@ -63,7 +62,6 @@
 	let lastScrollTime = 0; // Время последнего скролла
 	const scrollDelay = 300; // Задержка в мс (0.5 секунды)
 	let allScenesIsPlayed = false;
-	let deltaY;
 
 	// Функция проверки, находится ли центр блока в центре экрана
 	function isCenterInView() {
@@ -91,28 +89,15 @@
 	// Блокировка скролла
 	function lockScroll() {
 		isScrollLocked = true;
-
-		const scrollWidth = window.innerWidth - document.documentElement.clientWidth;
-		document.body.style.paddingRight = scrollWidth + "px";
-		header.style.transform = `translateX(-${scrollWidth / 2}px)`;
-
+		console.log("Скролл заблокирован!");
 		html.classList.add("slide-showed");
 	}
 
 	// Разблокировка скролла
-	function unlockScroll(finallyUnlock = false) {
+	function unlockScroll() {
 		isScrollLocked = false;
-
+		allScenesIsPlayed = true;
 		html.classList.remove("slide-showed");
-		document.body.style.paddingRight = "";
-		header.style.transform = "";
-
-		if (finallyUnlock) {
-			allScenesIsPlayed = true;
-			window.removeEventListener("scroll", scrollEvent);
-			window.removeEventListener("wheel", wheelEvent);
-			window.removeEventListener("touchmove", touchmoveEvent);
-		}
 	}
 
 	function onLockedScroll() {
@@ -124,7 +109,7 @@
 
 		// Разблокируем скролл при достижении последней сцены
 		if (currentScene >= maxScenes) {
-			unlockScroll(true);
+			unlockScroll();
 			return;
 		}
 
@@ -137,30 +122,24 @@
 	}
 
 	// Запрещаем скролл колесом мыши/тачпадом при блокировке
-	function scrollEvent() {
-		if (!isScrollLocked && !allScenesIsPlayed && isCenterInView() && deltaY > 0) {
+	window.addEventListener("scroll", (e) => {
+		if (!isScrollLocked && !allScenesIsPlayed && isCenterInView()) {
 			scrollToBlockCenter();
 			lockScroll();
 		}
-	}
-	window.addEventListener("scroll", scrollEvent);
 
-	function wheelEvent(e) {
-		deltaY = e.deltaY;
-		if (isScrollLocked) {
-			if (e.deltaY < 0) {
-				unlockScroll();
-			}
-			onLockedScroll();
-		}
-	}
-	window.addEventListener("wheel", wheelEvent);
+	});
 
-	function touchmoveEvent() {
+	window.addEventListener("wheel", () => {
 		if (isScrollLocked) {
 			onLockedScroll();
 		}
-	}
-	window.addEventListener("touchmove", touchmoveEvent);
+	});
+
+	window.addEventListener("touchmove", () => {
+		if (isScrollLocked) {
+			onLockedScroll();
+		}
+	});
 }());
 
