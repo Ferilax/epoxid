@@ -31,7 +31,6 @@ aside {
 
 html,
 body {
-  height: 100%;
   width: 100%;
   font-size: 100%;
   line-height: 1;
@@ -199,6 +198,10 @@ main.pt {
   padding: 0 var(--container-padding);
 }
 
+.wrapper {
+  position: relative;
+}
+
 :root {
   --grey: #F5F5F5;
   --light-blue: #DDF2FF;
@@ -350,7 +353,7 @@ main.pt {
   }
 }
 
-.page_instruction .download, .page_article .information .card__detailed, .page_articles .show-more, .page_menu .drugs-splide .where-to-find, .page_menu .drugs-splide .detailed {
+.page_404 .link, .page_instruction .download, .page_article .information .card__detailed, .page_articles .show-more, .page_menu .drugs-splide .where-to-find, .page_menu .drugs-splide .detailed {
   font-size: clamp(18px, 17.2957746479px + 0.1877934272vw, 20px);
   font-weight: 700;
   color: #2A2858;
@@ -363,7 +366,7 @@ main.pt {
   justify-content: center;
 }
 @media (width >= 1024px) {
-  .page_instruction .download, .page_article .information .card__detailed, .page_articles .show-more, .page_menu .drugs-splide .where-to-find, .page_menu .drugs-splide .detailed {
+  .page_404 .link, .page_instruction .download, .page_article .information .card__detailed, .page_articles .show-more, .page_menu .drugs-splide .where-to-find, .page_menu .drugs-splide .detailed {
     font-weight: 500;
     height: 64px;
     padding: 0 50px;
@@ -624,7 +627,7 @@ main.pt {
 
 #header {
   background: white;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -3991,4 +3994,62 @@ main.pt {
 }
 .page_emoxipin-neo .layout_where-to-find .image.flacon {
   max-width: 230px;
+}
+
+.page_404 .content {
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--container-padding);
+}
+.page_404 .title {
+  font-size: clamp(128px, 74.4788732394px + 14.2723004695vw, 280px);
+  font-weight: 700;
+  /* Создаем градиент */
+  background: linear-gradient(to right, #0A2653, #1655B9);
+  /* Обрезаем фон по контуру текста */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Делаем текст прозрачным, чтобы был виден градиент */
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+.page_404 .gradient {
+  margin-top: -20px;
+  display: none;
+}
+.page_404 .text {
+  font-size: clamp(32px, 26.3661971831px + 1.5023474178vw, 48px);
+  font-weight: 500;
+  color: var(--dark-blue);
+  margin-top: 20px;
+  text-align: center;
+}
+.page_404 .link {
+  background: var(--blue-2);
+  color: white;
+  margin-top: 30px;
+  width: 100%;
+}
+@media (width >= 768px) {
+  .page_404 .gradient {
+    display: block;
+  }
+  .page_404 .link {
+    width: -moz-max-content;
+    width: max-content;
+  }
+}
+@media (width >= 1440px) {
+  .page_404 .link {
+    margin-top: 60px;
+  }
+  .page_404 .text {
+    margin-top: 10px;
+  }
 }

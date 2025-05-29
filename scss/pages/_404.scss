@@ -1,0 +1,71 @@
+.page_404 {
+	.content {
+		position: fixed;
+		top: 50%;
+		width: 100%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: var(--container-padding);
+	}
+
+	.title {
+		@include responsive-font(128, 280);
+		font-weight: 700;
+
+		/* Создаем градиент */
+		background: linear-gradient(to right, #0A2653, #1655B9);
+
+		/* Обрезаем фон по контуру текста */
+		-webkit-background-clip: text;
+		background-clip: text;
+
+		/* Делаем текст прозрачным, чтобы был виден градиент */
+		-webkit-text-fill-color: transparent;
+		text-fill-color: transparent;
+	}
+
+	.gradient {
+		margin-top: -20px;
+		display: none;
+	}
+
+	.text {
+		@include responsive-font(32, 48);
+		font-weight: 500;
+		color: var(--dark-blue);
+		margin-top: 20px;
+		text-align: center;
+	}
+
+	.link {
+		@extend %button;
+		background: var(--blue-2);
+		color: white;
+		margin-top: 30px;
+		width: 100%;
+	}
+
+	@media (width >=768px) {
+		.gradient {
+			display: block;
+		}
+
+		.link {
+			width: max-content;
+		}
+	}
+
+	@media (width >=1440px) {
+		.link {
+			margin-top: 60px;
+		}
+
+		.text {
+			margin-top: 10px;
+		}
+	}
+}

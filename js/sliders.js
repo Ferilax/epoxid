@@ -91,6 +91,7 @@
 				perPage: 2,
 				drag: false,
 				padding: 0,
+				gap: 20,
 			}
 		}
 	})

@@ -1,4 +1,5 @@
 (function () {
+
 	// Конфигурация слайд-шоу
 	const SLIDESHOW_CONFIG = {
 		maxScenes: {
@@ -68,3 +69,4 @@
 	// Вешаем обработчик клика
 	container.addEventListener("click", goToNextScene);
 }());
+
