@@ -89,7 +89,6 @@
 	// Блокировка скролла
 	function lockScroll() {
 		isScrollLocked = true;
-		console.log("Скролл заблокирован!");
 		html.classList.add("slide-showed");
 	}
 

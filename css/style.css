@@ -216,6 +216,7 @@ html.slide-showed {
   --dark: #1C1C1C;
   --dark-grey: #6A6A6A;
   --z-start-loader: 150;
+  --z-start-banner-hidden: 105;
   --z-header: 100;
   --z-mobile-menu: 90;
   --z-select: 10;
@@ -601,17 +602,24 @@ html.slide-showed {
 }
 
 .component_start-loader {
-  background: #209cc9;
   transition: 0.5s;
-  width: 100vw;
+  width: 110vw;
   height: 100dvh;
   z-index: var(--z-start-loader);
   position: fixed;
   top: 0;
-  left: 0;
-  animation: loader 1.4s 0.2s forwards ease-in-out;
+  right: 0;
+  pointer-events: none;
 }
 @keyframes loader {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+@keyframes loader_2 {
   0% {
     transform: translateY(0);
   }
@@ -619,14 +627,51 @@ html.slide-showed {
     transform: translateY(-100%);
   }
 }
+.component_start-loader::after, .component_start-loader::before {
+  content: "";
+  position: fixed;
+  width: 100vw;
+  height: 50dvh;
+  left: 0;
+  background: #209cc9;
+}
+.component_start-loader::after {
+  bottom: 0;
+  animation: loader 1.2s 0.4s forwards ease-in-out;
+}
+.component_start-loader::before {
+  top: 0;
+  animation: loader_2 1.2s 0.4s forwards ease-in-out;
+}
 .component_start-loader__body {
-  background: rgba(1, 80, 215, 0.3019607843);
+  position: fixed;
   width: 100vw;
   height: 100dvh;
   z-index: var(--z-start-loader);
   top: 0;
+  right: 0;
+}
+.component_start-loader__body::after, .component_start-loader__body::before {
+  content: "";
+  position: fixed;
+  width: 100vw;
+  height: 50dvh;
   left: 0;
-  animation: loader 1.2s 0.2s forwards ease-in-out;
+  background: rgba(1, 80, 215, 0.3019607843);
+}
+.component_start-loader__body::after {
+  bottom: 0;
+  animation: loader 1.2s forwards ease-in-out;
+}
+.component_start-loader__body::before {
+  top: 0;
+  animation: loader_2 1.2s forwards ease-in-out;
+}
+.component_start-loader.purple::after, .component_start-loader.purple::before {
+  background: #4b78c5;
+}
+.component_start-loader.purple .component_start-loader__body::after, .component_start-loader.purple .component_start-loader__body::before {
+  background: rgba(1, 80, 215, 0.5764705882);
 }
 
 #header {
@@ -1383,6 +1428,7 @@ html.slide-showed {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 .layout_start-banner .container {
   display: flex;
@@ -1423,6 +1469,7 @@ html.slide-showed {
   margin: -25% 0;
   display: flex;
   width: 170%;
+  position: relative;
 }
 .layout_start-banner .image img {
   width: 100%;
@@ -1441,6 +1488,56 @@ html.slide-showed {
 .layout_start-banner .where-to-find {
   max-width: 500px;
   width: 100%;
+}
+.layout_start-banner .hidden {
+  position: absolute;
+  z-index: var(--z-start-banner-hidden);
+  top: 50%;
+  transform: translateY(calc(-50% - 30px));
+  left: 61.5%;
+  width: 15%;
+  aspect-ratio: 262/440;
+  display: none;
+}
+.layout_start-banner .hidden__body {
+  width: 490px;
+  background: #D2D4D6;
+  border-radius: 16px;
+  padding: 15px;
+  display: flex;
+  gap: 30px;
+  position: absolute;
+  bottom: calc(50% + 40px);
+  left: 50%;
+  transform: translate(-50%, -40px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+}
+.layout_start-banner .hidden__drug {
+  background: rgba(255, 255, 255, 0.8901960784);
+  border-radius: 8px;
+  flex: 1 1 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark-blue);
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s;
+}
+.layout_start-banner .hidden__drug:hover {
+  background: #E7E7E7;
+}
+.layout_start-banner .hidden__drug img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 188/206;
+}
+.layout_start-banner .hidden__drug span {
+  margin-top: auto;
+  text-align: center;
+  padding: 0 16px 16px;
 }
 @media (width >= 600px) {
   .layout_start-banner .image {
@@ -1506,6 +1603,16 @@ html.slide-showed {
     width: unset;
   }
 }
+@media (width >= 1200px) {
+  .layout_start-banner .hidden {
+    display: block;
+  }
+  .layout_start-banner .hidden:hover .hidden__body {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
 @media (width >= 1440px) {
   .layout_start-banner {
     background: url("../assets/images/backgrounds/green-hand.webp") right bottom/50% no-repeat, url("../assets/images/backgrounds/green-desktop.webp") 50%/cover no-repeat;
@@ -1513,6 +1620,14 @@ html.slide-showed {
   .layout_start-banner .list {
     flex-direction: row;
     max-width: 730px;
+  }
+  .layout_start-banner .hidden {
+    position: absolute;
+    bottom: 12vw;
+    top: unset;
+    left: 59.8%;
+    width: 10.5%;
+    transform: none;
   }
 }
 @media (width >= 1600px) {
@@ -1929,11 +2044,11 @@ html.slide-showed {
   }
 }
 @media (width >= 1440px) {
-  .page_menu .start-banner .drug-2.list {
+  .page_menu .start-banner .drug-2 .list {
     background: rgba(42, 40, 88, 0.3019607843);
     border-radius: 10px;
   }
-  .page_menu .start-banner .drug-2.list-item {
+  .page_menu .start-banner .drug-2 .list-item {
     background: none;
   }
   .page_menu .start-banner .left {
@@ -1966,6 +2081,10 @@ html.slide-showed {
   display: flex;
   flex-direction: column-reverse;
   justify-content: start;
+  transition: 0.2s;
+}
+.page_menu .drugs-splide .splide__slide img {
+  transition: 0.3s;
 }
 .page_menu .drugs-splide .splide__slide:nth-child(1) {
   background-image: url("../assets/images/gradients/green-1.webp");
@@ -2018,9 +2137,40 @@ html.slide-showed {
 .page_menu .drugs-splide .image {
   max-width: 184px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 .page_menu .drugs-splide .image img {
   width: 100%;
+}
+.page_menu .drugs-splide .img-1-2,
+.page_menu .drugs-splide .img-2-2,
+.page_menu .drugs-splide .img-2-3 {
+  position: absolute;
+  z-index: -1;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.page_menu .drugs-splide .img-1-2 {
+  right: 45%;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 20%;
+  height: 60%;
+}
+.page_menu .drugs-splide .img-2-2 {
+  left: 45%;
+  top: 55%;
+  transform: translate(0, -50%);
+  width: 20%;
+  height: 70%;
+}
+.page_menu .drugs-splide .img-2-3 {
+  left: 45%;
+  top: 70%;
+  transform: translate(0, -50%);
+  width: 20%;
+  height: 50%;
 }
 @media (width < 768px) {
   .page_menu .drugs-splide {
@@ -2035,18 +2185,45 @@ html.slide-showed {
   .page_menu .drugs-splide .component_li-mark {
     margin-top: 5px;
   }
+  .page_menu .drugs-splide .splide__slide:hover .img-1-1 {
+    transform: scale(1.1) rotate(3deg);
+  }
+  .page_menu .drugs-splide .splide__slide:hover .img-1-2 {
+    transform: translate(0, -70%) scale(1.1) rotate(-1deg);
+  }
+  .page_menu .drugs-splide .splide__slide:hover .img-2-1 {
+    transform: translateX(20px) scale(1.1) rotate(-5deg);
+  }
+  .page_menu .drugs-splide .splide__slide:hover .img-2-2 {
+    transform: translate(0, -50%) scale(1.2);
+  }
+  .page_menu .drugs-splide .splide__slide:hover .img-2-3 {
+    transform: translate(0, -35%) scale(1.2);
+  }
+  .page_menu .drugs-splide .splide__slide:hover:nth-child(1) {
+    background-image: url("../assets/images/gradients/green-2.jpg");
+  }
+  .page_menu .drugs-splide .splide__slide:hover:nth-child(2) {
+    background-image: url("../assets/images/gradients/purple-2.jpg");
+  }
 }
 @media (width >= 1440px) {
   .page_menu .drugs-splide .splide__slide {
     flex-direction: row;
     padding: 0;
   }
+  .page_menu .drugs-splide .splide__slide:nth-child(2) {
+    padding-right: 80px;
+  }
+  .page_menu .drugs-splide .splide__slide:nth-child(2) .content {
+    padding-right: 0;
+  }
   .page_menu .drugs-splide .content {
     padding: 40px;
     flex: 1 1 480px;
   }
   .page_menu .drugs-splide .image {
-    flex: 0 1 410px;
+    flex: 0 1 310px;
     max-width: unset;
     margin: auto 0;
   }
@@ -2270,7 +2447,7 @@ html.slide-showed {
   flex: 0 1 720px;
   height: 776px;
   border-radius: 20px;
-  background: var(--image-desktop) 100%/cover;
+  background: url("../assets/images/eye-desktop-1.webp") 100%/cover;
   transition: 0.7s ease-out;
   position: relative;
 }
@@ -2293,6 +2470,32 @@ html.slide-showed {
   visibility: hidden;
   background: url("../assets/images/antioxidant.webp") center/contain no-repeat;
 }
+.page_menu .slide-show .face * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+.page_menu .slide-show .face-2 {
+  background: url("../assets/images/eye-desktop-2.webp") center/contain no-repeat;
+}
+.page_menu .slide-show .face-3 {
+  background: url("../assets/images/eye-desktop-3.webp") center/contain no-repeat;
+}
+.page_menu .slide-show .face-4 {
+  background: url("../assets/images/eye-desktop-4.webp") center/contain no-repeat;
+}
+.page_menu .slide-show .face-5 {
+  background: url("../assets/images/eye-desktop-3.webp") center/contain no-repeat;
+}
+.page_menu .slide-show .face-6 {
+  background: url("../assets/images/eye-desktop-2.webp") center/contain no-repeat;
+}
+.page_menu .slide-show .face-7 {
+  background: url("../assets/images/eye-desktop-1.webp") center/contain no-repeat;
+}
 .page_menu .slide-show .other {
   flex: 0 1 820px;
 }
@@ -2303,7 +2506,6 @@ html.slide-showed {
   .page_menu .slide-show {
     background: none;
     min-height: 900px;
-    --image-desktop: url("../assets/images/eye-desktop-1.webp");
   }
   .page_menu .slide-show .body {
     transition: 0.4s;
@@ -2319,32 +2521,20 @@ html.slide-showed {
     display: block;
     top: 47px;
   }
-  .page_menu .slide-show[data-current-scene="3"] {
-    --image-desktop: url("../assets/images/eye-desktop-2.webp");
-  }
   .page_menu .slide-show[data-current-scene="3"] .list:after {
     display: block;
     top: 197px;
-  }
-  .page_menu .slide-show[data-current-scene="4"] {
-    --image-desktop: url("../assets/images/eye-desktop-3.webp");
   }
   .page_menu .slide-show[data-current-scene="4"] .list:after {
     display: block;
     top: 337px;
   }
-  .page_menu .slide-show[data-current-scene="5"] {
-    --image-desktop: url("../assets/images/eye-desktop-4.webp");
-  }
   .page_menu .slide-show[data-current-scene="5"] .list:after {
     display: block;
     top: 477px;
   }
-  .page_menu .slide-show[data-current-scene="6"] {
-    --image-desktop: url("../assets/images/eye-desktop-3.webp");
-  }
-  .page_menu .slide-show[data-current-scene="7"] {
-    --image-desktop: url("../assets/images/eye-desktop-2.webp");
+  .page_menu .slide-show[data-current-scene="6"] .face-4 {
+    opacity: 0;
   }
   .page_menu .slide-show:has(.list-item.completed.last) .inner-list {
     visibility: hidden;
@@ -3502,6 +3692,11 @@ html.slide-showed {
 .page_emoxipin-neo .layout_start-banner .subtitle {
   max-width: 600px;
 }
+.page_emoxipin-neo .layout_start-banner .hidden {
+  left: 63%;
+  width: 17.5%;
+  aspect-ratio: 262/400;
+}
 @media (width < 600px) {
   .page_emoxipin-neo .layout_start-banner .image {
     margin: -20% 0;
@@ -3522,6 +3717,11 @@ html.slide-showed {
   }
   .page_emoxipin-neo .layout_start-banner .subtitle {
     max-width: 840px;
+  }
+  .page_emoxipin-neo .layout_start-banner .hidden {
+    left: 60.8%;
+    width: 12.5%;
+    bottom: 11.2vw;
   }
 }
 .page_emoxipin-neo .about-drug {

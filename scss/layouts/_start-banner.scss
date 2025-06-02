@@ -12,6 +12,8 @@
 	flex-direction: column;
 	justify-content: center;
 
+	position: relative;
+
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -61,6 +63,7 @@
 		margin: -25% 0;
 		display: flex;
 		width: 170%;
+		position: relative;
 
 		img {
 			width: 100%;
@@ -85,6 +88,65 @@
 		@extend %button-with-icon;
 		max-width: 500px;
 		width: 100%;
+	}
+
+	.hidden {
+		position: absolute;
+		z-index: var(--z-start-banner-hidden);
+		top: 50%;
+		transform: translateY(calc(-50% - 30px));
+		left: 61.5%;
+		width: 15%;
+
+		aspect-ratio: 262/440;
+		display: none;
+	}
+
+	.hidden__body {
+		width: 490px;
+		background: #D2D4D6;
+		border-radius: 16px;
+		padding: 15px;
+
+		display: flex;
+		gap: 30px;
+
+		position: absolute;
+		bottom: calc(50% + 40px);
+		left: 50%;
+		transform: translate(-50%, -40px);
+
+		opacity: 0;
+		visibility: hidden;
+		transition: 0.2s;
+	}
+
+	.hidden__drug {
+		background: #FFFFFFE3;
+		border-radius: 8px;
+		flex: 1 1 0;
+		font-size: 24px;
+		font-weight: 700;
+		color: var(--dark-blue);
+		display: flex;
+		flex-direction: column;
+		transition: 0.2s;
+
+		&:hover {
+			background: #E7E7E7;
+		}
+
+		img {
+			width: 100%;
+			object-fit: cover;
+			aspect-ratio: 188/206;
+		}
+
+		span {
+			margin-top: auto;
+			text-align: center;
+			padding: 0 16px 16px;
+		}
 	}
 
 	@media (width >=600px) {
@@ -166,6 +228,20 @@
 		}
 	}
 
+	@media (width >=1200px) {
+		.hidden {
+			display: block;
+
+			&:hover {
+				.hidden__body {
+					visibility: visible;
+					opacity: 1;
+					transform: translate(-50%, 0);
+				}
+			}
+		}
+	}
+
 	@media (width >=1440px) {
 		background:
 			url("../assets/images/backgrounds/green-hand.webp") right bottom / 50% no-repeat,
@@ -174,6 +250,15 @@
 		.list {
 			flex-direction: row;
 			max-width: 730px;
+		}
+
+		.hidden {
+			position: absolute;
+			bottom: 12vw;
+			top: unset;
+			left: 59.8%;
+			width: 10.5%;
+			transform: none;
 		}
 	}
 

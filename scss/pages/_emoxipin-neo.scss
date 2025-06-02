@@ -25,6 +25,12 @@
 			max-width: 600px;
 		}
 
+		.hidden {
+			left: 63%;
+			width: 17.5%;
+			aspect-ratio: 262/400;
+		}
+
 		@media (width < 600px) {
 			.image {
 				margin: -20% 0;
@@ -42,12 +48,19 @@
 		}
 
 		@media (width >=1440px) {
+			background:
+				url("../assets/images/backgrounds/purple-hand.webp") right bottom / 50% no-repeat,
+				url("../assets/images/backgrounds/purple-desktop.jpg") 50% / cover no-repeat;
+
 			.subtitle {
 				max-width: 840px;
 			}
 
-			background: url("../assets/images/backgrounds/purple-hand.webp") right bottom / 50% no-repeat,
-			url("../assets/images/backgrounds/purple-desktop.jpg") 50% / cover no-repeat;
+			.hidden {
+				left: 60.8%;
+				width: 12.5%;
+				bottom: 11.2vw;
+			}
 		}
 	}
 
