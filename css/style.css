@@ -40,7 +40,6 @@ body {
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
-
 input,
 button,
 textarea {
@@ -173,6 +172,7 @@ a {
   font-style: normal;
 }
 body {
+  overflow-y: hidden;
   font-family: "DIN Pro";
   scroll-behavior: smooth;
   color: #1C1C1C;
@@ -195,14 +195,21 @@ main.pt {
 
 .wrapper {
   position: relative;
+  height: 100%;
 }
 
 @media (max-width: 1200px) {
   html.lock {
     overflow: hidden;
   }
+  html.lock body {
+    overflow: hidden;
+  }
 }
 html.slide-showed {
+  overflow: hidden;
+}
+html.slide-showed body {
   overflow: hidden;
 }
 
@@ -616,7 +623,7 @@ html.slide-showed {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(100%);
+    transform: translateY(120%);
   }
 }
 @keyframes loader_2 {
@@ -624,7 +631,7 @@ html.slide-showed {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-100%);
+    transform: translateY(-120%);
   }
 }
 .component_start-loader::after, .component_start-loader::before {
@@ -1421,8 +1428,8 @@ html.slide-showed {
 .layout_start-banner {
   padding: calc(var(--header-height) + 38px) 0 38px;
   background: url("../assets/images/backgrounds/green-mobile.webp") 50%/cover no-repeat;
-  min-height: -moz-min-content;
-  min-height: min-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
   height: 100vh;
   color: white;
   display: flex;

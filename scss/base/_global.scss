@@ -1,4 +1,5 @@
 body {
+	overflow-y: hidden;
 	font-family: "DIN Pro";
 	scroll-behavior: smooth;
 	color: #1C1C1C;
@@ -20,16 +21,26 @@ main.pt {
 
 .wrapper {
 	position: relative;
+	height: 100%;
 }
 
 html {
+
 	@media (max-width: 1200px) {
 		&.lock {
 			overflow: hidden;
+
+			body {
+				overflow: hidden;
+			}
 		}
 	}
 
 	&.slide-showed {
 		overflow: hidden;
+
+		body {
+			overflow: hidden;
+		}
 	}
 }

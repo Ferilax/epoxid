@@ -121,7 +121,7 @@
 	}
 
 	// Запрещаем скролл колесом мыши/тачпадом при блокировке
-	window.addEventListener("scroll", (e) => {
+	document.addEventListener("scroll", (e) => {
 		if (!isScrollLocked && !allScenesIsPlayed && isCenterInView()) {
 			scrollToBlockCenter();
 			lockScroll();
@@ -129,13 +129,13 @@
 
 	});
 
-	window.addEventListener("wheel", () => {
+	document.addEventListener("wheel", () => {
 		if (isScrollLocked) {
 			onLockedScroll();
 		}
 	});
 
-	window.addEventListener("touchmove", () => {
+	document.addEventListener("touchmove", () => {
 		if (isScrollLocked) {
 			onLockedScroll();
 		}
