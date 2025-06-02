@@ -604,7 +604,7 @@ html.slide-showed {
 .component_start-loader {
   transition: 0.5s;
   width: 110vw;
-  height: 100dvh;
+  height: 100vh;
   z-index: var(--z-start-loader);
   position: fixed;
   top: 0;
@@ -631,7 +631,7 @@ html.slide-showed {
   content: "";
   position: fixed;
   width: 100vw;
-  height: 50dvh;
+  height: 50vh;
   left: 0;
   background: #209cc9;
 }
@@ -646,7 +646,7 @@ html.slide-showed {
 .component_start-loader__body {
   position: fixed;
   width: 100vw;
-  height: 100dvh;
+  height: 100vh;
   z-index: var(--z-start-loader);
   top: 0;
   right: 0;
@@ -655,7 +655,7 @@ html.slide-showed {
   content: "";
   position: fixed;
   width: 100vw;
-  height: 50dvh;
+  height: 50vh;
   left: 0;
   background: rgba(1, 80, 215, 0.3019607843);
 }
@@ -1423,7 +1423,7 @@ html.slide-showed {
   background: url("../assets/images/backgrounds/green-mobile.webp") 50%/cover no-repeat;
   min-height: -moz-min-content;
   min-height: min-content;
-  height: 100dvh;
+  height: 100vh;
   color: white;
   display: flex;
   flex-direction: column;
@@ -1889,7 +1889,7 @@ html.slide-showed {
 }
 .page_menu .start-banner .splide__list {
   align-items: stretch;
-  height: 100dvh !important;
+  height: 100vh !important;
   min-height: -moz-min-content;
   min-height: min-content;
 }

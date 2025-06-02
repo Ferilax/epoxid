@@ -21,7 +21,7 @@
 
 	transition: 0.5s;
 	width: 110vw;
-	height: 100dvh;
+	height: 100vh;
 	z-index: var(--z-start-loader);
 	position: fixed;
 	top: 0;
@@ -33,7 +33,7 @@
 		content: "";
 		position: fixed;
 		width: 100vw;
-		height: 50dvh;
+		height: 50vh;
 		left: 0;
 		background: #209cc9;
 	}
@@ -51,7 +51,7 @@
 	&__body {
 		position: fixed;
 		width: 100vw;
-		height: 100dvh;
+		height: 100vh;
 		z-index: var(--z-start-loader);
 		top: 0;
 		right: 0;
@@ -61,7 +61,7 @@
 			content: "";
 			position: fixed;
 			width: 100vw;
-			height: 50dvh;
+			height: 50vh;
 			left: 0;
 			background: #0150d74d;
 		}
