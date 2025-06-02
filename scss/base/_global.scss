@@ -28,6 +28,7 @@ html {
 
 	@media (max-width: 1200px) {
 		&.lock {
+			touch-action: none;
 			overflow: hidden;
 
 			body {
@@ -37,6 +38,7 @@ html {
 	}
 
 	&.slide-showed {
+		touch-action: none;
 		overflow: hidden;
 
 		body {

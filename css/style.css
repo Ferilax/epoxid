@@ -40,6 +40,7 @@ body {
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
+
 input,
 button,
 textarea {
@@ -200,6 +201,7 @@ main.pt {
 
 @media (max-width: 1200px) {
   html.lock {
+    touch-action: none;
     overflow: hidden;
   }
   html.lock body {
@@ -207,6 +209,7 @@ main.pt {
   }
 }
 html.slide-showed {
+  touch-action: none;
   overflow: hidden;
 }
 html.slide-showed body {
